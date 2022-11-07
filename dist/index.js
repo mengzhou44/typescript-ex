@@ -9,7 +9,10 @@ dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
 app.get('/', (req, res) => {
-    res.send(`<h2> Running on port: ${port}</h2>`);
+    res.send(`<h2>Hello, Running on port: ${port}</h2>`);
+});
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
 });
 app.listen(port, () => {
     console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
